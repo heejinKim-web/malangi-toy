@@ -1,0 +1,132 @@
+.malangi_body{
+    width:512px; height:512px;
+    margin:0 auto;
+    position:relative;
+}
+
+.malangi_belly{
+    width:512px; height:512px; background:url("assets/images/body/body_base.png") no-repeat center;
+    transition:scaleY 0.2s ease;
+    background-size:cover;
+}
+
+.malangi_body.pressed .malangi_belly
+{
+    transform:scaleY(0.85);
+    transform-origin:center bottom;
+}
+
+.malangi_sprout{
+    width:512px; height:512px; background:url("assets/images/accessories/sprout.png") no-repeat center;
+    position:absolute;
+    top: 45px; left:0;
+    background-size:cover;
+}
+
+.malangi_body.pressed .malangi_sprout{
+    top:95px;
+}
+
+.malangi_face{
+   width:512px; height:512px; background:url("assets/images/face/happy.png") no-repeat center; 
+   position:absolute;
+   top:0; left:0;
+   transition:background 0.2s ease;
+   background-size:cover;
+}
+
+.malangi_surprised{
+   width:512px; height:512px; background:url("assets/images/face/surprised.png") no-repeat center; 
+   position:absolute;
+   top:0; left:0;
+   transition:background 0.2s ease;
+   background-size:cover;
+}
+
+.malangi_annoyed{
+   width:512px; height:512px; background:url("assets/images/face/annoyed.png") no-repeat center; 
+   position:absolute;
+   top:0; left:0;
+   transition:background 0.2s ease;
+   background-size:cover;
+}
+
+.malangi_angry{
+   width:512px; height:512px; background:url("assets/images/face/angry.png") no-repeat center; 
+   position:absolute;
+   top:0; left:0;
+   transition:background 0.2s ease;
+   background-size:cover;
+}
+
+.malangi_face.pressed, .malangi_surprised.pressed, .malangi_annoyed.pressed, .malangi_angry.pressed{
+    background:url("assets/images/face/pressed.png") no-repeat center; 
+    background-size:cover;
+}
+
+.malangi_blush{
+    width:512px; height:512px; background:url("assets/images/effects/blush.png") no-repeat center; 
+    background-size:cover;
+   position:absolute;
+   top:0; left:0;
+}
+
+.malangi_surprised.malangi_blush{
+    background:
+        url("assets/images/effects/surprised.png") no-repeat center,
+        url("assets/images/effects/blush.png") no-repeat center;
+    background-size:cover, cover;
+}
+
+.malangi_annoyed.malangi_blush{
+    background:
+        url("assets/images/effects/dizzy.png") no-repeat center,
+        url("assets/images/effects/blush.png") no-repeat center;
+    background-size:cover, cover;
+}
+
+.malangi_angry.malangi_blush{
+    background:
+        url("assets/images/effects/angry.png") no-repeat center,
+        url("assets/images/effects/blush.png") no-repeat center;
+    background-size:cover, cover;
+}
+
+.malangi_state{
+    text-align:center;
+    font-size:18px;
+    margin-top:10px;
+}
+
+.malangi_state.surprised{
+    color:blue;
+    font-weight:bold;
+    font-size:18px;
+}
+
+.malangi_state.annoyed{
+    color:green;
+    font-weight:bold;
+    font-size:20px;
+}
+
+.malangi_state.angry{
+    color:red;
+    font-weight:bold;
+    font-size:22px;
+}
+
+
+@media (max-width:512px){
+    .malangi_body, .malangi_belly, .malangi_sprout, .malangi_face, .malangi_surprised, .malangi_annoyed, .malangi_angry, .malangi_blush{
+        width:350px; height:350px;
+    }
+
+    .malangi_sprout{
+        top: 35px;
+    }
+
+    .malangi_body.pressed .malangi_sprout{
+        top:65px;
+    }
+}
