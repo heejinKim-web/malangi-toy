@@ -1,3 +1,7 @@
+body{
+    overflow:hidden;
+}
+
 .malangi_body{
     width:512px; height:512px;
     margin:0 auto;
@@ -6,13 +10,13 @@
 
 .malangi_belly{
     width:512px; height:512px; background:url("assets/images/body/body_base.png") no-repeat center;
-    transition:scaleY 0.2s ease;
+    transition:transform 0.2s ease;
     background-size:cover;
 }
 
 .malangi_body.pressed .malangi_belly
 {
-    transform:scaleY(0.85);
+    transform:scaleX(1.05) scaleY(0.85);
     transform-origin:center bottom;
 }
 
@@ -21,6 +25,7 @@
     position:absolute;
     top: 45px; left:0;
     background-size:cover;
+    transition:transform 0.2s ease;
 }
 
 .malangi_body.pressed .malangi_sprout{
@@ -31,7 +36,6 @@
    width:512px; height:512px; background:url("assets/images/face/happy.png") no-repeat center; 
    position:absolute;
    top:0; left:0;
-   transition:background 0.2s ease;
    background-size:cover;
 }
 
@@ -39,7 +43,6 @@
    width:512px; height:512px; background:url("assets/images/face/surprised.png") no-repeat center; 
    position:absolute;
    top:0; left:0;
-   transition:background 0.2s ease;
    background-size:cover;
 }
 
@@ -47,7 +50,6 @@
    width:512px; height:512px; background:url("assets/images/face/annoyed.png") no-repeat center; 
    position:absolute;
    top:0; left:0;
-   transition:background 0.2s ease;
    background-size:cover;
 }
 
@@ -55,7 +57,6 @@
    width:512px; height:512px; background:url("assets/images/face/angry.png") no-repeat center; 
    position:absolute;
    top:0; left:0;
-   transition:background 0.2s ease;
    background-size:cover;
 }
 
@@ -64,11 +65,20 @@
     background-size:cover;
 }
 
+.malangi_body.pressed .malangi_face.pressed, .malangi_body.pressed .malangi_surprised.pressed,
+.malangi_body.pressed .malangi_annoyed.pressed, .malangi_body.pressed .malangi_angry.pressed{
+    transform:translateY(25px);
+}
+
 .malangi_blush{
     width:512px; height:512px; background:url("assets/images/effects/blush.png") no-repeat center; 
     background-size:cover;
    position:absolute;
    top:0; left:0;
+}
+
+.malangi_body.pressed .malangi_blush{
+    transform:translateY(25px);
 }
 
 .malangi_surprised.malangi_blush{
@@ -128,5 +138,14 @@
 
     .malangi_body.pressed .malangi_sprout{
         top:65px;
+    }
+
+    .malangi_body.pressed .malangi_face.pressed, .malangi_body.pressed .malangi_surprised.pressed,
+    .malangi_body.pressed .malangi_annoyed.pressed, .malangi_body.pressed .malangi_angry.pressed{
+        transform:translateY(20px);
+    }
+
+    .malangi_body.pressed .malangi_blush{
+        transform:translateY(20px);
     }
 }

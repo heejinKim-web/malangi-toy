@@ -1,9 +1,12 @@
-import { useState } from 'react';
+import { useState, useRef, useEffect } from 'react';
 
 const Malangi = () => {
     const [count, setCount] = useState(0);
     const [pressed, setPressed] = useState(false);
-    
+    const [pressedface, setPressedFace] = useState(false);
+    const faceRef = useRef(null);
+    const cooldonnRef = useRef(null);
+
     let faceClass;
     let conversation;
     let convClass;
@@ -28,15 +31,52 @@ const Malangi = () => {
 
     const handlePress = () => {
         setPressed(true);
+        setPressedFace(true);
         setCount(prev =>  prev + 1);
     }
 
+    const handleUp = () => {
+        setPressed(false);
+
+        if(faceRef.current){
+            clearTimeout(faceRef.current);
+        }
+        
+        faceRef.current = setTimeout(() => {
+            setPressedFace(false);
+        }, 500);
+
+        return () => {
+            if(faceRef.current){
+                clearTimeout(faceRef.current);
+            }
+        }
+    }
+
+    useEffect(() => {
+        if(count === 0) return;
+
+        if(cooldonnRef.current){
+            clearTimeout(cooldonnRef.current);
+        }
+
+        cooldonnRef.current = setTimeout(() => {
+            setCount(0);
+        }, 5000);
+
+        return () => {
+            if(cooldonnRef.current){
+                clearTimeout(cooldonnRef.current);
+            };
+        };
+    }, [count]);
+
     return(
         <>
-        <div className={pressed ? "malangi_body pressed" : "malangi_body"} onPointerDown={handlePress} onPointerUp={() => setPressed(false)} onPointerLeave={() => setPressed(false)}>
+        <div className={pressed ? "malangi_body pressed" : "malangi_body"} onPointerDown={handlePress} onPointerUp={handleUp} onPointerLeave={handleUp}>
             <div className="malangi_belly"></div>
             <div className="malangi_sprout"></div> 
-            <div className={`${faceClass} ${pressed ? "pressed" : ""}`}></div>
+            <div className={`${faceClass} ${pressedface ? "pressed" : ""}`}></div>
             <div className={`malangi_blush ${faceClass}`}></div>
         </div>
         <div className={`${convClass} malangi_state`}>
