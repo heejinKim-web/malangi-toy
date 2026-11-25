@@ -37,20 +37,10 @@ const Malangi = () => {
 
     const handleUp = () => {
         setPressed(false);
-
-        if(faceRef.current){
-            clearTimeout(faceRef.current);
-        }
         
-        faceRef.current = setTimeout(() => {
+        setTimeout(() => {
             setPressedFace(false);
         }, 500);
-
-        return () => {
-            if(faceRef.current){
-                clearTimeout(faceRef.current);
-            }
-        }
     }
 
     useEffect(() => {
