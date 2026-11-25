@@ -4,7 +4,6 @@ const Malangi = () => {
     const [count, setCount] = useState(0);
     const [pressed, setPressed] = useState(false);
     const [pressedface, setPressedFace] = useState(false);
-    const faceRef = useRef(null);
     const cooldonnRef = useRef(null);
 
     let faceClass;
@@ -37,7 +36,7 @@ const Malangi = () => {
 
     const handleUp = () => {
         setPressed(false);
-        
+
         setTimeout(() => {
             setPressedFace(false);
         }, 500);
